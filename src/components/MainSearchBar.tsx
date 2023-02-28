@@ -15,7 +15,12 @@ export default function MainSearchBar() {
 
   return (
     <>
-      <form className="flex justify-between">
+      <form
+        className="flex justify-between"
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
         <input
           type="text"
           placeholder="Search"
@@ -27,7 +32,7 @@ export default function MainSearchBar() {
         />
 
         <select
-          className="select w-full max-w-xs"
+          className="select select-bordered w-full max-w-xs"
           value={selectedRegion}
           onChange={handleRegionChange}
         >
