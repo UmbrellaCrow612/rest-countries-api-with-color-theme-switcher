@@ -8,6 +8,11 @@ export default function MainSearchBar() {
     setSelectedRegion(event.target.value);
   }
 
+  function clearForms() {
+    setSearch("");
+    setSelectedRegion("");
+  }
+
   return (
     <>
       <form className="flex justify-between">
@@ -35,6 +40,10 @@ export default function MainSearchBar() {
           <option value="Europe">Europe</option>
           <option value="Oceania">Oceania</option>
         </select>
+
+        <button className="btn" onClick={clearForms}>
+          Clear
+        </button>
       </form>
     </>
   );
