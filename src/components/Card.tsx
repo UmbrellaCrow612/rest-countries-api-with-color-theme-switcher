@@ -10,7 +10,7 @@ export default function Card({
   title: string;
   population: number;
   region: string;
-  capital: string[];
+  capital: any;
   flagSrc: string;
 }) {
   return (
