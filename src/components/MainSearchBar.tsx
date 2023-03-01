@@ -1,8 +1,11 @@
+import { filterRegionState } from "atoms/filterRegionState";
 import { useState } from "react";
+import { useRecoilState } from "recoil";
 
 export default function MainSearchBar() {
   const [search, setSearch] = useState<string>("");
-  const [selectedRegion, setSelectedRegion] = useState<string>("");
+  const [selectedRegion, setSelectedRegion] =
+    useRecoilState<string>(filterRegionState);
 
   function handleRegionChange(event: React.ChangeEvent<HTMLSelectElement>) {
     setSelectedRegion(event.target.value);
@@ -24,7 +27,7 @@ export default function MainSearchBar() {
         <input
           type="text"
           placeholder="Search"
-          className="input input-bordered w-full max-w-lg"
+          className="w-full max-w-lg input input-bordered"
           aria-label="Search"
           role="search"
           value={search}
@@ -32,7 +35,7 @@ export default function MainSearchBar() {
         />
 
         <select
-          className="select select-bordered w-full max-w-xs"
+          className="w-full max-w-xs select select-bordered"
           value={selectedRegion}
           onChange={handleRegionChange}
         >

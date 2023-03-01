@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+import { filterRegionState } from "atoms/filterRegionState";
 import Link from "next/link";
+import { useRecoilValue } from "recoil";
 
 export default function Card({
   title,
@@ -14,9 +16,12 @@ export default function Card({
   capital: any;
   flagSrc: string;
 }) {
+  const regionState = useRecoilValue(filterRegionState);
+
+  const hide = regionState.length > 1 && region !== regionState;
   return (
     <>
-      <Link href="/" className="shadow-xl card w-80 h-96 bg-base-100">
+      <Link href="/" className={`shadow-xl card w-80 h-96 bg-base-100 ${hide ? "hidden": ""}`}>
         <figure className="w-full h-[10rem] relative">
           <img
             src={flagSrc}
