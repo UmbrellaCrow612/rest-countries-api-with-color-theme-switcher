@@ -30,7 +30,7 @@ export default function Card({
   return (
     <>
       <Link
-        href="/"
+        href={`/${title.toLowerCase()}`}
         className={`shadow-xl card w-80 h-96 bg-base-100 ${
           hide ? "hidden" : ""
         }`}
