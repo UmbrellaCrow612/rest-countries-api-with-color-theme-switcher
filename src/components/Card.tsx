@@ -17,7 +17,7 @@ export default function Card({
   return (
     <>
       <Link href="/" className="shadow-xl card w-80 h-96 bg-base-100">
-        <figure className="w-full h-[10rem] border relative">
+        <figure className="w-full h-[10rem] relative">
           <img
             src={flagSrc}
             alt={title}
