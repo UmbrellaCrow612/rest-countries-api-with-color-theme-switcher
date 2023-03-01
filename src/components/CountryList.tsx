@@ -2,13 +2,17 @@ import useCountries from "@/hooks/useCountries";
 import Card from "./Card";
 
 export default function CountryList() {
-  const { countries } = useCountries();
+  const { countries, isError, isLoading } = useCountries();
 
-  {
-    /* There are some types but just look at the json data and  */
+  if (isLoading) {
+    return <>Loading</>;
+  }
+
+  if (isError) {
+    return <>Error</>;
   }
   return (
-    <div className="flex flex-wrap w-full gap-5 p-2 overflow-y-scroll border justify-evenly h-[40rem]">
+    <div className="flex flex-wrap w-full gap-5 p-2 overflow-y-scroll justify-evenly h-[40rem]">
       {countries?.map((item) => (
         <Card
           key={item.cca2}
