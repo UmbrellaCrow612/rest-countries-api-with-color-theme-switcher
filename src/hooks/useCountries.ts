@@ -2323,13 +2323,14 @@ export interface PostalCode {
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-const useCountries = (): {
+const useCountries = (name?: string): {
   countries: Country[] | undefined;
   isLoading: boolean;
   isError: boolean;
 } => {
+  const url = name ? `https://restcountries.com/v3.1/name${name}` : "https://restcountries.com/v3.1/all";
   const { data, error } = useSWR<Country[]>(
-    "https://restcountries.com/v3.1/all",
+    url,
     fetcher
   );
   const isLoading = !data && !error;
