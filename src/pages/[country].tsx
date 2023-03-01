@@ -61,6 +61,64 @@ export default function Page() {
             Alt Spellings: {JSON.stringify(item.altSpellings)}
           </p>
           <p className="text-2xl font-bold">Region: {item.region}</p>
+
+          <p className="text-2xl font-bold">Subregion: {item.subregion}</p>
+
+          <p className="text-2xl font-bold">
+            Languages: {JSON.stringify(item.languages)}
+          </p>
+
+          <p className="text-2xl font-bold">
+            Translations: {JSON.stringify(item.translations)}
+          </p>
+
+          <p className="text-2xl font-bold">
+            Landlocked: {JSON.stringify(item.landlocked)}
+          </p>
+
+          <p className="flex gap-4 text-2xl font-bold">
+            Boards:{" "}
+            {item.borders?.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+          </p>
+
+          <p className="flex gap-4 text-2xl font-bold">Area: {item.area}</p>
+          <p className="flex gap-4 text-2xl font-bold">
+            Demonyms: {JSON.stringify(item.demonyms)}
+          </p>
+          <p className="flex gap-4 text-2xl font-bold">Flag: {item.flag}</p>
+
+          <p className="flex gap-4 text-2xl font-bold">
+            Maps: {item.maps.googleMaps}
+          </p>
+          <p className="flex gap-4 text-2xl font-bold">
+            Population: {item.population}
+          </p>
+          <p className="flex gap-4 text-2xl font-bold">
+            Gini: {JSON.stringify(item.gini)}
+          </p>
+          <p className="flex gap-4 text-2xl font-bold">fifa: {item.fifa}</p>
+          <p className="flex gap-4 text-2xl font-bold">
+            Car: {JSON.stringify(item.car)}
+          </p>
+          <p className="flex gap-4 text-2xl font-bold">
+            Timezones: {JSON.stringify(item.timezones)}
+          </p>
+          <p className="flex gap-4 text-2xl font-bold">
+            Continents: {JSON.stringify(item.continents)}
+          </p>
+          <p className="text-2xl font-bold ">
+            Coat of arms:
+            <div className="h-64 max-w-md">
+              <img
+                src={item.coatOfArms.svg}
+                alt=""
+                loading="lazy"
+                className="w-full h-full aspect-auto"
+              />
+            </div>
+          </p>
         </div>
       ))}
     </section>
