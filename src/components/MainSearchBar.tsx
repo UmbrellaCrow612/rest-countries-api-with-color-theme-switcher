@@ -1,9 +1,9 @@
 import { filterRegionState } from "atoms/filterRegionState";
-import { useState } from "react";
+import { filterSearchState } from "atoms/filterSearchState";
 import { useRecoilState } from "recoil";
 
 export default function MainSearchBar() {
-  const [search, setSearch] = useState<string>("");
+  const [search, setSearch] = useRecoilState<string>(filterSearchState);
   const [selectedRegion, setSelectedRegion] =
     useRecoilState<string>(filterRegionState);
 
@@ -43,7 +43,6 @@ export default function MainSearchBar() {
             Filter by region
           </option>
           <option value="Africa">Africa</option>
-          <option value="America">America</option>
           <option value="Asia">Asia</option>
           <option value="Europe">Europe</option>
           <option value="Oceania">Oceania</option>

@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { filterRegionState } from "atoms/filterRegionState";
+import { filterSearchState } from "atoms/filterSearchState";
 import Link from "next/link";
 import { useRecoilValue } from "recoil";
 
@@ -17,11 +18,21 @@ export default function Card({
   flagSrc: string;
 }) {
   const regionState = useRecoilValue(filterRegionState);
+  const searchState = useRecoilValue(filterSearchState);
 
   const hide = regionState.length > 1 && region !== regionState;
+
+  const hideBySearch =
+    searchState.length > 1 &&
+    !title.toLowerCase().includes(searchState.toLowerCase());
   return (
     <>
-      <Link href="/" className={`shadow-xl card w-80 h-96 bg-base-100 ${hide ? "hidden": ""}`}>
+      <Link
+        href="/"
+        className={`shadow-xl card w-80 h-96 bg-base-100 ${
+          hide ? "hidden" : ""
+        } ${hideBySearch ? "hidden": ""}`}
+      >
         <figure className="w-full h-[10rem] relative">
           <img
             src={flagSrc}
