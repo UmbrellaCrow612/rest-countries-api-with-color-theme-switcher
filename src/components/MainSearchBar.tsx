@@ -19,7 +19,7 @@ export default function MainSearchBar() {
   return (
     <>
       <form
-        className="flex justify-between"
+        className="flex flex-col items-center gap-3 lg:flex-row lg:justify-between"
         onSubmit={(e) => {
           e.preventDefault();
         }}
