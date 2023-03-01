@@ -20,7 +20,7 @@ export default function CountryList() {
           capital={item.capital}
           population={item.population}
           region={item.region}
-          flagSrc={item.flags.png}
+          flagSrc={item.flags.svg}
         />
       ))}
     </div>

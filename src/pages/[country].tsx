@@ -24,7 +24,7 @@ export default function Page() {
         <div key={item.cca2} className="space-y-10">
           <div className="h-64 max-w-md">
             <img
-              src={item.flags.png}
+              src={item.flags.svg}
               alt=""
               loading="lazy"
               className="w-full h-full aspect-auto"
