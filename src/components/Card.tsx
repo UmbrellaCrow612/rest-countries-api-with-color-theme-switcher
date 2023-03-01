@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
 export default function Card({
@@ -17,7 +18,12 @@ export default function Card({
     <>
       <Link href="/" className="shadow-xl card w-80 h-96 bg-base-100">
         <figure className="w-full h-[10rem] border relative">
-          <img src={flagSrc} alt={title} className="w-full h-full" />
+          <img
+            src={flagSrc}
+            alt={title}
+            className="w-full h-full"
+            loading="lazy"
+          />
         </figure>
         <div className="card-body">
           <h2 className="font-bold card-title">{title}</h2>
